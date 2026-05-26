@@ -1,74 +1,67 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-      {
-        "label": "compile for debug",
-        "type": "shell",
-        "command": "g++",
-        "args": [
-          "-std=c++20",
-          "-g",
-          "-O0",
-          "-Wall",
-          "-Wextra",
-          "${file}",
-          "-o",
-          "${workspaceFolder}\\output\\${fileBasenameNoExtension}.exe"
-        ],
-        "options": {
-          "shell": {
-            "executable": "cmd.exe",
-            "args": [
-              "/c"
-            ]
-          }
-        },
-        "group": "build",
-        "presentation": {
-          "reveal": "silent",
-          "close": true
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Debug Task",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++20",
+        "-g",
+        "-O0",
+        "-Wall",
+        "-Wextra",
+        "${file}",
+        "-o",
+        "${workspaceFolder}\\output\\${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "shell": {
+          "executable": "cmd.exe",
+          "args": [
+            "/c"
+          ]
         }
       },
-      {
-        "label": "compile and run with file IO",
-        "type": "shell",
-        "command": "g++",
-        "args": [
-          "-std=c++20",
-          "-O2",
-          "-Wall",
-          "-Wextra",
-          "${file}",
-          "-o",
-          "${workspaceFolder}\\output\\${fileBasenameNoExtension}.exe",
-          "&&",
-          "${workspaceFolder}\\output\\${fileBasenameNoExtension}.exe"
-        ],
-        "options": {
-          "shell": {
-            "executable": "cmd.exe",
-            "args": [
-              "/c"
-            ]
-          }
-        },
-        "group": {
-          "kind": "build",
-          "isDefault": true
-        },
-        "presentation": {
-          "reveal": "silent",
-          "close": true
-        },
-        "problemMatcher": []
-      },
-      {
-        "type": "cmake",
-        "label": "CMake: package",
-        "command": "package",
-        "problemMatcher": [],
-        "detail": "CMake template package task",
-        "group": "build"
+      "group": "build",
+      "presentation": {
+        "reveal": "silent",
+        "close": true
       }
-    ]
+    },
+    {
+      "label": "compile and run with file IO",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++20",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "${file}",
+        "-o",
+        "${workspaceFolder}\\output\\${fileBasenameNoExtension}.exe",
+        "&&",
+        "${workspaceFolder}\\output\\${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "shell": {
+          "executable": "cmd.exe",
+          "args": [
+            "/c"
+          ]
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    
+  ]
 }
